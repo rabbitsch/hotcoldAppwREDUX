@@ -3,15 +3,17 @@ import Input from './components/input';
 import Content from './components/displayCont';
 import './App.css';
 
+
+
 export default class App extends Component {
   constructor(){
     super()
     this.state = {
-      amtGuessesNumber: 0,
+      guesses: [],
       numberGuessed: '',
-
-
-    }
+      correctAnswer: Math.floor(Math.random() * 100) + 1,
+      feedback: 'lets play?'
+    };
 
   }
 
@@ -41,21 +43,10 @@ export default class App extends Component {
 
     }
 
-    submitHandler = (event) =>{
-      event.preventDefault();
+    setGuess = (guess) => {
+      console.log(this.state)
+      this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
     }
-
-//input search
-    handleInputEvent = (event) =>{
-      console.log('the event is happening')
-      this.setState({
-        numberGuessed: event.target.value
-      })
-    }
-
-
-
-
 
   render() {
     return (
@@ -64,11 +55,12 @@ export default class App extends Component {
           <h1 className="App-title">Hot or Cold</h1>
         </header>
           <div>
-            <Input Submiter = {this.submitHandler} userInput={this.handleInputEvent.bind(this)} />
+            <Input onSubmit={this.setGuess} Submiter = {this.submitHandler} userInput={this.handleInputEvent} />
+
           </div>
-        <p className="App-intro">
-            <Content userGuess={this.numberGuessed}/>
-        </p>
+        <div className="App-intro">
+            <Content guesses={this.state.guesses} />
+        </div>
       </div>
     );
   }
