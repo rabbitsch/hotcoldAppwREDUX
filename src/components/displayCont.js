@@ -5,7 +5,7 @@ const Content = (props) =>{
   return(
     <div>
       <ul className="contentDisp">
-        <li>{props.userGuessed}</li>
+        <li>{props.userGuess}</li>
       </ul>
     </div>
   )

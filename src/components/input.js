@@ -3,9 +3,10 @@ import React from 'react';
 const Input= (props) => {
   return(
     <div className="inputface">
-      <form onSubmit={props.submitHandler}>
-        <input type="text" onChange={props.change} placeholder="Type in Number here" numberGuessed={props.numberGuessed}></input>
-        <button onClick={()=>props.handleInputEvent()}>Submit Your Answer</button>
+      <form onSubmit={props.Submiter}>
+        <input type="text" onChange={props.change} placeholder="Type in Number here" numberGuessed={props.numberGuessed}
+          userInput={props.userInput}></input>
+        <button>Submit Your Answer</button>
     </form>
 
     </div>

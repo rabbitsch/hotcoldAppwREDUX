@@ -49,7 +49,7 @@ export default class App extends Component {
     handleInputEvent = (event) =>{
       console.log('the event is happening')
       this.setState({
-        [event.target.value]: event.target.value
+        numberGuessed: event.target.value
       })
     }
 
@@ -64,7 +64,7 @@ export default class App extends Component {
           <h1 className="App-title">Hot or Cold</h1>
         </header>
           <div>
-            <Input  />
+            <Input Submiter = {this.submitHandler} userInput={this.handleInputEvent.bind(this)} />
           </div>
         <p className="App-intro">
             <Content userGuess={this.numberGuessed}/>
