@@ -35,6 +35,36 @@ export default class App extends Component {
      //      return negativeFeedback();
      // }
 
+     userGuessing = (guess) =>{
+       const difference = Math.abs(guess - this.state.correctAnswer)
+
+       let feedback;
+       if(difference >= 50){
+         feedback: "you are ice cold"
+       }
+       else if(difference >= 40){
+         feedback:"bra you are chilly"
+       }
+       else if(difference >= 30){
+         feedback: "less chilly but still chillin"
+       }
+       else if(difference >= 20){
+         feedback:"getting warm"
+       }
+       else if(difference >= 10){
+         feedback:"getting hot"
+       }
+       else if(difference >= 5){
+         feedback:"hot!!"
+       }
+       else{
+         feedback: "you got it!"
+       }
+       this.setState({
+         feedback
+       })
+     }
+
      feedbackForUser = () =>{
 
     }
