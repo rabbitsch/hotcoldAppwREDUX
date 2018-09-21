@@ -55,7 +55,7 @@ export default class App extends Component {
           <h1 className="App-title">Hot or Cold</h1>
         </header>
           <div>
-            <Input onSubmit={this.setGuess} Submiter = {this.submitHandler} userInput={this.handleInputEvent} />
+            <Input onSubmit={this.setGuess}  />
 
           </div>
         <div className="App-intro">
