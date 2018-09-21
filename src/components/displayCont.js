@@ -12,6 +12,7 @@ const Content = (props) => {
     <div>
       <ul className="contentDisp">
         {props.guesses.map(guess => <li key={guess}>{guess}</li>)}
+        <li>{props.feedback}</li>
       </ul>
     </div>
   )

@@ -35,8 +35,14 @@ export default class App extends Component {
      //      return negativeFeedback();
      // }
 
-     userGuessing = (guess) =>{
+   setGuess = (guess) =>{
+     console.log('guess was clicked can you hear me')
+
+  const userGuessing = (guess) => {
+    console.log(guess,'>>>>>>>>>>')
        const difference = Math.abs(guess - this.state.correctAnswer)
+          console.log('>>>>>>>>>>>')
+          console.log(difference)
 
        let feedback;
        if(difference >= 50){
@@ -63,20 +69,17 @@ export default class App extends Component {
        this.setState({
          feedback
        })
+       // this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
      }
+     this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
+   }
 
-     feedbackForUser = () =>{
 
-    }
-
-    postiveFeedback = () =>{
-
-    }
-
-    setGuess = (guess) => {
-      console.log(this.state)
-      this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
-    }
+// User guesses
+    // setGuess = (guess) => {
+    //   console.log(this.state)
+    //   this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
+    // }
 
   render() {
     return (
@@ -89,7 +92,7 @@ export default class App extends Component {
 
           </div>
         <div className="App-intro">
-            <Content guesses={this.state.guesses} />
+            <Content guesses={this.state.guesses} feedback={this.state.feedback} />
         </div>
       </div>
     );
