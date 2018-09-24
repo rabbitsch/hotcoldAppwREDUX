@@ -36,9 +36,11 @@ export default class App extends Component {
      // }
 
    setGuess = (guess) =>{
-     console.log('guess was clicked can you hear me')
 
-  const userGuessing = (guess) => {
+     console.log('guess was clicked can you hear me')
+     console.log(guess)
+
+  // const userGuessing = (guess) => {
     console.log(guess,'>>>>>>>>>>')
        const difference = Math.abs(guess - this.state.correctAnswer)
           console.log('>>>>>>>>>>>')
@@ -46,33 +48,37 @@ export default class App extends Component {
 
        let feedback;
        if(difference >= 50){
-         feedback: "you are ice cold"
+         feedback = "you are ice cold"
        }
        else if(difference >= 40){
-         feedback:"bra you are chilly"
+         feedback ="bra you are chilly"
        }
        else if(difference >= 30){
-         feedback: "less chilly but still chillin"
+         feedback = "less chilly but still chillin"
        }
        else if(difference >= 20){
-         feedback:"getting warm"
+         feedback = "getting warm"
        }
        else if(difference >= 10){
-         feedback:"getting hot"
+         feedback = "getting hot"
        }
        else if(difference >= 5){
-         feedback:"hot!!"
+         feedback = "hot!!"
        }
        else{
-         feedback: "you got it!"
+         feedback = "you got it!"
        }
-       this.setState({
-         feedback
-       })
-       // this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
+       // this.setState({
+       //   feedback
+       // })
+        this.setState(state => ({
+          ...state,
+          guesses: [...state.guesses, guess],
+          feedback
+         }))
      }
-     this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
-   }
+     // this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
+
 
 
 // User guesses
@@ -81,7 +87,7 @@ export default class App extends Component {
     //   this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
     // }
 
-  render() {
+  render(){
     return (
       <div className="App">
         <header className="App-header">
