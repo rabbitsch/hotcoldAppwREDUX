@@ -2,6 +2,13 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: Sz/UXAuU29EzomsH4Tb+Yi1UUiop1+QZe6lSikYqti84OHndAzyDNQrAGMZhHljVoh0FNGW4G8XiEYbYEOf+MSJ/4gDbRQUyeL35R+hi2QtjA+WlI74nQa0FaF5dNjVzr4LVTb/JTrxGvhHDNcQWTWZo/DqBDMEopia7/XdULHAWHVR5feqQVZ2VC8RpmL/AR+FpAtfDnSfWydqomr8Zb12K6K/mJBTfdKfv5ST+Q4rztfcN5kJtsDaW0S3VngfPDYcOPon23gyWliX0TQfy0seTl1XbrisIfUkDxFqfhMLaAZgJW2NM59CZWh2pseob3ewJ/WY3Ul7XF0YAaAJxYbmcQGpCohgXyLSij2j3YvcDT6brRoguzn3jTlaHcm5PTujZUbO3dW+cAr9HnwFHiagri0sojbcZfPGFm/UZGMmQwIZZVBlnwNJ4u+2OeeqFqIJa2ocV6mRH97fLrn7J09I0BKwrQB7Nu9XY5nccpS/xdwI8DjYSHu2BPLSx7m5+EhPCAQjxTr3ljMxWGI3RsJf7xPDgHaGGccyHz0tfITHad24/TXNlxafu37QBGXeTAuqPlAvjQO7dasuZiwPh9jfqGzJH76uTXKGqydEbShDuTPwhmiGQoJo6HuDisw+dxary7nGnl6EnhVEroeEARi35Su4pUoL5H5uq8GX7t6M=
+  app: rocky-wave-19209
+  on:
+    repo: rabbitsch/reactHotColdApp
