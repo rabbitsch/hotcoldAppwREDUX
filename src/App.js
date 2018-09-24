@@ -91,7 +91,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Hot or Cold</h1>
+          <h1 className="App-title">Hot or Cold App</h1>
+          <p> Type in a number!</p>
         </header>
           <div>
             <Input onSubmit={this.setGuess}  />
