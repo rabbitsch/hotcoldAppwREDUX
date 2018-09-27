@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setGuesses } from '../actions';
 import store from '../store';
 
-const Input = (props) => {
+ export const Input = (props) => {
   console.log(props, 'here is the props form input')
   const handleSubmit = (event) => {
     event.preventDefault()

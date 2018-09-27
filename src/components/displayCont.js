@@ -5,7 +5,7 @@ import store from '../store';
 
 
 
-const Content = (props) => {
+export const Content = (props) => {
   console.log(props, "before my guess on display cont")
   console.log(store.getState(),' store from my display cont')
   const guesses = props.guesses.map((guess, index) =>(<li key={index}>{guess}</li>));

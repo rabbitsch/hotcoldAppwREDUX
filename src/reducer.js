@@ -44,12 +44,12 @@ export const guesserReducer = (state = initialState,action) =>{
         else if(difference >= 10){
           feedback = "getting hot";
         }
-        else if(difference >= 5){
+        else if(difference >= 1){
           feedback = "hot!!";
         }
-        else{
+        else
           feedback = "you got it!";
-        }
+
 
     return Object.assign({}, state,{
       feedback,
