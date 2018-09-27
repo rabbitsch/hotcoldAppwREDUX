@@ -1,93 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {connect} from 'react-redux';
+// import { Component } from 'react';
+// import store from './store';
 import Input from './components/input';
 import Content from './components/displayCont';
 import './App.css';
 
 
 
-export default class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-      guesses: [],
-      numberGuessed: '',
-      correctAnswer: Math.floor(Math.random() * 100) + 1,
-      feedback: 'lets play?'
-    };
+export class App extends React.Component {
 
-  }
+   render(){
 
-
-
-    //
-    // guessCounter = () =>{
-    //   count++;
-    // }
-
-     //  generateNumber = (guess) =>{
-	   //     const secretNumber = Math.floor(Math.random()*100)+1;
-     //     console.log(secretNumber)
-     //     console.log(guess)
-     //     if(secretNumber === guess){
-     //       postiveFeedback();
-     //     }
-     //    else
-     //      return negativeFeedback();
-     // }
-
-   setGuess = (guess) =>{
-
-     console.log('guess was clicked can you hear me')
-     console.log(guess)
-
-  // const userGuessing = (guess) => {
-    console.log(guess,'>>>>>>>>>>')
-       const difference = Math.abs(guess - this.state.correctAnswer)
-          console.log('>>>>>>>>>>>')
-          console.log(difference)
-
-       let feedback;
-       if(difference >= 50){
-         feedback = "you are ice cold"
-       }
-       else if(difference >= 40){
-         feedback ="bra you are chilly"
-       }
-       else if(difference >= 30){
-         feedback = "less chilly but still chillin"
-       }
-       else if(difference >= 20){
-         feedback = "getting warm"
-       }
-       else if(difference >= 10){
-         feedback = "getting hot"
-       }
-       else if(difference >= 5){
-         feedback = "hot!!"
-       }
-       else{
-         feedback = "you got it!"
-       }
-       // this.setState({
-       //   feedback
-       // })
-        this.setState(state => ({
-          ...state,
-          guesses: [...state.guesses, guess],
-          feedback
-         }))
-     }
-     // this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
-
-
-
-// User guesses
-    // setGuess = (guess) => {
-    //   console.log(this.state)
-    //   this.setState(state => ({ ...state, guesses: [...state.guesses, guess] }))
-    // }
-
-  render(){
     return (
       <div className="App">
         <header className="App-header">
@@ -95,13 +19,33 @@ export default class App extends Component {
           <p> Type in a number!</p>
         </header>
           <div>
-            <Input onSubmit={this.setGuess}  />
+            <Input />
 
           </div>
         <div className="App-intro">
-            <Content guesses={this.state.guesses} feedback={this.state.feedback} />
+            <Content  />
         </div>
       </div>
     );
   }
+
 }
+
+App.defaultProps =({
+  guesses: [],
+  correctAnswer: Math.floor(Math.random() * 100) + 1,
+  feedback: 'lets play?'
+})
+
+const mapDispatchToProps = dispatch =>{
+
+}
+
+const mapStateToProps = state => ({
+  guesses: state.guesses,
+  correctAnswer: state.correctAnswer,
+  feedback: state.feedback
+
+})
+
+export default connect(mapStateToProps)(App);

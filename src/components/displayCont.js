@@ -1,21 +1,31 @@
 import React from 'react';
+import setGuesses from '../actions';
+import { connect } from 'react-redux';
+import store from '../store';
+
 
 
 const Content = (props) => {
-  console.log(props)
-
-  // if (!props.guesses.length) {
-  //   return <p>There are no guesses to show.</p>
-  // }
+  console.log(props, "before my guess on display cont")
+  console.log(store.getState(),' store from my display cont')
+  const guesses = props.guesses.map((guess, index) =>(<li key={index}>{guess}</li>));
+  console.log(guesses, 'from display cont')
 
   return (
     <div>
       <ul className="contentDisp">
-        {props.guesses.map(guess => <li key={guess}>{guess}</li>)}
+        {guesses}
         <li>{props.feedback}</li>
       </ul>
     </div>
   )
 }
 
-export default Content;
+// export default Content;
+
+const mapStateToProps = state =>({
+  guesses: state.guesses,
+  feedback: state.feedback
+})
+
+export default connect(mapStateToProps)(Content);
